@@ -148,7 +148,7 @@ return [
 
     // All JS and CSS assets defined above have this string appended as query string (?v=string).
     // If you want to manually trigger cachebusting for all styles and scripts,
-    // append or prepent something to the string below, so that it's different.
+    // append or prepend something to the string below, so that it's different.
     'cachebusting_string' => \PackageVersions\Versions::getVersion('backpack/crud'),
 
     /*
@@ -175,6 +175,19 @@ return [
     // You can make sure all your URLs use this prefix by using the backpack_url() helper instead of url()
     'route_prefix' => 'admin',
 
+    // The web middleware (group) used in all base & CRUD routes
+    // If you've modified your "web" middleware group (ex: removed sessions), you can use a different
+    // route group, that has all the the middleware listed below in the comments.
+    'web_middleware' => 'web',
+    // Or you can comment the above, and uncomment the complete list below.
+    // 'web_middleware' => [
+    //     \App\Http\Middleware\EncryptCookies::class,
+    //     \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
+    //     \Illuminate\Session\Middleware\StartSession::class,
+    //     \Illuminate\View\Middleware\ShareErrorsFromSession::class,
+    //     \App\Http\Middleware\VerifyCsrfToken::class,
+    // ],
+
     // Set this to false if you would like to use your own AuthController and PasswordController
     // (you then need to setup your auth routes manually in your routes.php file)
     'setup_auth_routes' => true,
@@ -194,10 +207,10 @@ return [
     */
 
     // Fully qualified namespace of the User model
-    'user_model_fqn' => App\Models\BackpackUser::class,
+    'user_model_fqn' => App\User::class,
 
     // The classes for the middleware to check if the visitor is an admin
-    // Can be a single class or an array of clases
+    // Can be a single class or an array of classes
     'middleware_class' => [
         App\Http\Middleware\CheckIfAdmin::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
