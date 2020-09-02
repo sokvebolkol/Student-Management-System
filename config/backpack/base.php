@@ -24,7 +24,7 @@ return [
     // ----
 
     // Project name. Shown in the window title.
-    'project_name' => 'Backpack Admin Panel',
+    'project_name' => 'Student Management System',
 
     // When clicking on the admin panel's top-left logo/name,
     // where should the user be redirected?
@@ -105,13 +105,13 @@ return [
     // change background color with bg-dark, bg-primary, bg-secondary, bg-danger, bg-warning, bg-success, bg-info, bg-blue, bg-light-blue, bg-indigo, bg-purple, bg-pink, bg-red, bg-orange, bg-yellow, bg-green, bg-teal, bg-cyan, bg-white
 
     // Developer or company name. Shown in footer.
-    'developer_name' => 'Cristian Tabacitu',
+    'developer_name' => 'Sokvebol KOL',
 
     // Developer website. Link in footer. Type false if you want to hide it.
-    'developer_link' => 'http://tabacitu.ro',
+    'developer_link' => 'https://sokvebol-kol.netlify.com/',
 
     // Show powered by Laravel Backpack in the footer? true/false
-    'show_powered_by' => true,
+    // 'show_powered_by' => true,
 
     // -------
     // SCRIPTS
@@ -138,7 +138,7 @@ return [
     ],
 
     // JS files that are loaded in all pages, using Laravel's mix() helper
-    'mix_scripts' => [// file_path => manifest_directory_path
+    'mix_scripts' => [ // file_path => manifest_directory_path
         // 'js/app.js' => '',
     ],
 

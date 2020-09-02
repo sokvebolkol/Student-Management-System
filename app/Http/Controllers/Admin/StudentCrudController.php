@@ -21,7 +21,7 @@ class StudentCrudController extends CrudController
 
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
-     * 
+     *
      * @return void
      */
     public function setup()
@@ -33,7 +33,7 @@ class StudentCrudController extends CrudController
 
     /**
      * Define what happens when the List operation is loaded.
-     * 
+     *
      * @see  https://backpackforlaravel.com/docs/crud-operation-list-entries
      * @return void
      */
@@ -44,13 +44,13 @@ class StudentCrudController extends CrudController
         /**
          * Columns can be defined using the fluent syntax or array syntax:
          * - CRUD::column('price')->type('number');
-         * - CRUD::addColumn(['name' => 'price', 'type' => 'number']); 
+         * - CRUD::addColumn(['name' => 'price', 'type' => 'number']);
          */
     }
 
     /**
      * Define what happens when the Create operation is loaded.
-     * 
+     *
      * @see https://backpackforlaravel.com/docs/crud-operation-create
      * @return void
      */
@@ -58,18 +58,81 @@ class StudentCrudController extends CrudController
     {
         CRUD::setValidation(StudentRequest::class);
 
-        CRUD::setFromDb(); // fields
+        $this->crud->addField([
+            'label' => 'First Name',
+            'type' => 'text',
+            'name' => 'firstname',
+            'wrapperAttributes' => [
+                'class' => 'form-group col-md-3'
+            ],
 
-        /**
-         * Fields can be defined using the fluent syntax or array syntax:
-         * - CRUD::field('price')->type('number');
-         * - CRUD::addField(['name' => 'price', 'type' => 'number'])); 
-         */
+        ]);
+        $this->crud->addField([
+            'label' => 'Last Name',
+            'type' => 'text',
+            'name' => 'lastname',
+            'wrapperAttributes' => [
+                'class' => 'form-group col-md-3'
+            ],
+
+        ]);
+        $this->crud->addField([
+            'label' => 'Gender',
+            'name' => 'gender',
+            'type'        => 'select_from_array',
+            'options'     => ['male' => 'Male', 'female' => 'Female', 'other' => 'Other'],
+            'wrapperAttributes' => [
+                'class' => 'form-group col-md-3'
+            ],
+
+        ]);
+        $this->crud->addField([
+            'label' => 'Birthday',
+            'type' => 'datetime_picker',
+            'name' => 'birthday',
+            'datetime_picker_options' => [
+                'format' => 'DD/MM/YYYY HH:mm',
+            ],
+            'allows_null' => true,
+            'wrapperAttributes' => [
+                'class' => 'form-group col-md-3'
+            ],
+
+        ]);
+        $this->crud->addField([
+            'label' => 'Religion',
+            'type' => 'text',
+            'name' => 'religion',
+            'wrapperAttributes' => [
+                'class' => 'form-group col-md-3'
+            ],
+
+        ]);
+        $this->crud->addField([
+            'label' => 'Email Address',
+            'type' => 'email',
+            'name' => 'email',
+            'wrapperAttributes' => [
+                'class' => 'form-group col-md-3'
+            ],
+
+        ]);
+        $this->crud->addField([
+            'label' => 'Student Photo ',
+            'name' => 'avatar',
+            'type' => 'image',
+            'upload' => true,
+            'crop' => true,
+            'aspect_ratio' => 1,
+            'wrapperAttributes' => [
+                'class' => 'form-group col-md-4'
+            ],
+        ]);
     }
 
     /**
      * Define what happens when the Update operation is loaded.
-     * 
+     *
      * @see https://backpackforlaravel.com/docs/crud-operation-update
      * @return void
      */
