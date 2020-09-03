@@ -24,7 +24,7 @@ return [
     // ----
 
     // Project name. Shown in the window title.
-    'project_name' => 'Backpack Admin Panel',
+    'project_name' => 'Student Management System',
 
     // When clicking on the admin panel's top-left logo/name,
     // where should the user be redirected?
@@ -105,13 +105,13 @@ return [
     // change background color with bg-dark, bg-primary, bg-secondary, bg-danger, bg-warning, bg-success, bg-info, bg-blue, bg-light-blue, bg-indigo, bg-purple, bg-pink, bg-red, bg-orange, bg-yellow, bg-green, bg-teal, bg-cyan, bg-white
 
     // Developer or company name. Shown in footer.
-    'developer_name' => 'Cristian Tabacitu',
+    'developer_name' => 'Sokvebol KOL',
 
     // Developer website. Link in footer. Type false if you want to hide it.
-    'developer_link' => 'http://tabacitu.ro',
+    'developer_link' => 'https://sokvebol-kol.netlify.com/',
 
     // Show powered by Laravel Backpack in the footer? true/false
-    'show_powered_by' => true,
+    // 'show_powered_by' => true,
 
     // -------
     // SCRIPTS
@@ -138,7 +138,7 @@ return [
     ],
 
     // JS files that are loaded in all pages, using Laravel's mix() helper
-    'mix_scripts' => [// file_path => manifest_directory_path
+    'mix_scripts' => [ // file_path => manifest_directory_path
         // 'js/app.js' => '',
     ],
 
@@ -148,7 +148,7 @@ return [
 
     // All JS and CSS assets defined above have this string appended as query string (?v=string).
     // If you want to manually trigger cachebusting for all styles and scripts,
-    // append or prepent something to the string below, so that it's different.
+    // append or prepend something to the string below, so that it's different.
     'cachebusting_string' => \PackageVersions\Versions::getVersion('backpack/crud'),
 
     /*
@@ -175,6 +175,19 @@ return [
     // You can make sure all your URLs use this prefix by using the backpack_url() helper instead of url()
     'route_prefix' => 'admin',
 
+    // The web middleware (group) used in all base & CRUD routes
+    // If you've modified your "web" middleware group (ex: removed sessions), you can use a different
+    // route group, that has all the the middleware listed below in the comments.
+    'web_middleware' => 'web',
+    // Or you can comment the above, and uncomment the complete list below.
+    // 'web_middleware' => [
+    //     \App\Http\Middleware\EncryptCookies::class,
+    //     \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
+    //     \Illuminate\Session\Middleware\StartSession::class,
+    //     \Illuminate\View\Middleware\ShareErrorsFromSession::class,
+    //     \App\Http\Middleware\VerifyCsrfToken::class,
+    // ],
+
     // Set this to false if you would like to use your own AuthController and PasswordController
     // (you then need to setup your auth routes manually in your routes.php file)
     'setup_auth_routes' => true,
@@ -194,10 +207,10 @@ return [
     */
 
     // Fully qualified namespace of the User model
-    'user_model_fqn' => App\Models\BackpackUser::class,
+    'user_model_fqn' => App\User::class,
 
     // The classes for the middleware to check if the visitor is an admin
-    // Can be a single class or an array of clases
+    // Can be a single class or an array of classes
     'middleware_class' => [
         App\Http\Middleware\CheckIfAdmin::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
