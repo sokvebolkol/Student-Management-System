@@ -10,6 +10,6 @@
 #####
 5, php artisan serve
 #####
-6, Go to your browser with 127.0.0.1/admin
+6, Go to your browser with 127.0.0.1:8000/admin
 #####
 7, login with username: sokvebol.kol@gmail.com and password: password, if you import my database.
