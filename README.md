@@ -27,7 +27,7 @@ localhost:8000/admin
 sokvebol.kol@gmail.com and password: password
 virak.rim116@gmail.com and password: admin123
 
-### Sign-Up new account, If you don't want use that username and password for loging  
+### Sign-Up new account, If you don't want use that username and password for login:
 Example:
 username: admin
 password: 123456  
