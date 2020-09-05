@@ -8,7 +8,7 @@
 	</ul>
 </li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('student') }}'><i class='nav-icon la la-user'></i> Students</a></li>
-<li class="nav-item"><a class="nav-link" href="#"><i class="nav-icon la la-user"></i> Teachers</a></li>
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('teacher') }}'><i class='nav-icon la la-user'></i> Teachers</a></li>
 <li class="nav-item"><a class="nav-link" href="#"><i class="nav-icon la la-users"></i> Parents</a></li>
 <li class="nav-item"><a class="nav-link" href="#"><i class="nav-icon la la-building-o"></i> Classess</a></li>
 <li class="nav-item"><a class="nav-link" href="#"><i class="nav-icon la la-folder"></i> Subjects</a></li>
