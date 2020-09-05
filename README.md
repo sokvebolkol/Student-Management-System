@@ -2,6 +2,9 @@
 
 How to configure or run this project:
 
+## Project clone or download
+git clone https://github.com/sokvebolkol/Student-Management-System.git
+
 ## Project setup
 composer install
 
@@ -23,5 +26,10 @@ localhost:8000/admin
 ### Username and password for login: 
 sokvebol.kol@gmail.com and password: password
 virak.rim116@gmail.com and password: admin123
+
+### Sign-Up new account, If you don't want use that username and password for loging  
+Example:
+username: admin
+password: 123456  
 
 ###############################################################
