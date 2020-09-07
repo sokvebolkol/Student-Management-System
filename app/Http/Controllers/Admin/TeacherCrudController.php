@@ -136,7 +136,7 @@ class TeacherCrudController extends CrudController
 
         ]);
         $this->crud->addField([
-            'label' => 'Student Photo ',
+            'label' => 'Teacher Photo ',
             'name' => 'avatar',
             'type' => 'image',
             'upload' => true,
@@ -148,6 +148,56 @@ class TeacherCrudController extends CrudController
         ]);
     }
 
+    protected function setupShowOperation()
+    {
+        $this->crud->set('show.setFromDb', false);
+        $this->crud->addColumn([
+            'name' => 'firstname',
+            'label' => 'First Name',
+            'type' => 'text',
+        ]);
+        $this->crud->addColumn([
+            'name' => 'lastname',
+            'label' => 'Last Name',
+            'type' => 'text'
+        ]);
+        $this->crud->addColumn([
+            'name' => 'gender',
+            'label' => 'Gender',
+            'type' => 'text'
+        ]);
+        $this->crud->addColumn([
+            'name' => 'religion',
+            'label' => 'Religion',
+            'type' => 'text'
+        ]);
+        $this->crud->addColumn([
+            'name' => 'phonenumber',
+            'label' => 'Phone Number',
+            'type' => 'text'
+        ]);
+        $this->crud->addColumn([
+            'name' => 'address',
+            'label' => 'Address',
+            'type' => 'text'
+        ]);
+        $this->crud->addColumn([
+            'name' => 'birthday',
+            'label' => 'Birthday',
+            'type' => 'text'
+        ]);
+        $this->crud->addColumn([
+            'name' => 'email',
+            'label' => 'Email',
+            'type' => 'text',
+        ]);
+        $this->crud->addColumn([
+            'name' => 'avatar',
+            'label' => 'Avatar',
+            'type' => 'image',
+            'height' => '100px'
+        ]);
+    }
     /**
      * Define what happens when the Update operation is loaded.
      *
