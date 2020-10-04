@@ -21,7 +21,7 @@ class LibraryCrudController extends CrudController
 
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
-     * 
+     *
      * @return void
      */
     public function setup()
@@ -33,7 +33,7 @@ class LibraryCrudController extends CrudController
 
     /**
      * Define what happens when the List operation is loaded.
-     * 
+     *
      * @see  https://backpackforlaravel.com/docs/crud-operation-list-entries
      * @return void
      */
@@ -44,13 +44,13 @@ class LibraryCrudController extends CrudController
         /**
          * Columns can be defined using the fluent syntax or array syntax:
          * - CRUD::column('price')->type('number');
-         * - CRUD::addColumn(['name' => 'price', 'type' => 'number']); 
+         * - CRUD::addColumn(['name' => 'price', 'type' => 'number']);
          */
     }
 
     /**
      * Define what happens when the Create operation is loaded.
-     * 
+     *
      * @see https://backpackforlaravel.com/docs/crud-operation-create
      * @return void
      */
@@ -58,18 +58,52 @@ class LibraryCrudController extends CrudController
     {
         CRUD::setValidation(LibraryRequest::class);
 
-        CRUD::setFromDb(); // fields
+        $this->crud->addField([
+            'label' => 'Book Name',
+            'type' => 'text',
+            'name' => 'book_name',
+            'wrapperAttributes' => [
+                'class' => 'form-group col-md-6'
+            ],
 
-        /**
-         * Fields can be defined using the fluent syntax or array syntax:
-         * - CRUD::field('price')->type('number');
-         * - CRUD::addField(['name' => 'price', 'type' => 'number'])); 
-         */
+        ]);
+        $this->crud->addField([
+            'label' => 'Write Name',
+            'type' => 'text',
+            'name' => 'writer_name',
+            'wrapperAttributes' => [
+                'class' => 'form-group col-md-6'
+            ],
+
+        ]);
+        $this->crud->addField([
+            'label' => 'Subject',
+            'type' => 'text',
+            'name' => 'subject',
+            'wrapperAttributes' => [
+                'class' => 'form-group col-md-6'
+            ],
+
+        ]);
+
+        $this->crud->addField([
+            'label' => 'Publish Year',
+            'type' => 'datetime_picker',
+            'name' => 'publish_year',
+            'datetime_picker_options' => [
+                'format' => 'DD/MM/YYYY HH:mm',
+            ],
+            'allows_null' => true,
+            'wrapperAttributes' => [
+                'class' => 'form-group col-md-6'
+            ],
+
+        ]);
     }
 
     /**
      * Define what happens when the Update operation is loaded.
-     * 
+     *
      * @see https://backpackforlaravel.com/docs/crud-operation-update
      * @return void
      */
