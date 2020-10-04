@@ -14,7 +14,9 @@ Route::group([
     ),
     'namespace'  => 'App\Http\Controllers\Admin',
 ], function () { // custom admin routes
+    
     Route::crud('student', 'StudentCrudController');
     Route::crud('teacher', 'TeacherCrudController');
     Route::crud('library', 'LibraryCrudController');
+    Route::get('charts/weekly-users', 'Charts\WeeklyUsersChartController@response')->name('charts.weekly-users.index');
 }); // this should be the absolute last line of this file
