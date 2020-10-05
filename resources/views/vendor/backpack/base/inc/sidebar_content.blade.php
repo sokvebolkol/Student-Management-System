@@ -11,3 +11,5 @@
 <li class="nav-item"><a class="nav-link" href="{{backpack_url('edit-account-info')}}"><i class="nav-icon la la-user"></i> My Account</a></li>
 
 
+
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('info') }}'><i class='nav-icon la la-question'></i> Infos</a></li>
