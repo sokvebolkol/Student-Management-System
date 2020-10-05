@@ -28,7 +28,7 @@ class My_classCrudController extends CrudController
     {
         CRUD::setModel(\App\Models\My_class::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/my_class');
-        CRUD::setEntityNameStrings('Class', 'Classes');
+        CRUD::setEntityNameStrings('class', 'classes');
     }
 
     /**
@@ -58,13 +58,35 @@ class My_classCrudController extends CrudController
     {
         CRUD::setValidation(My_classRequest::class);
 
-        CRUD::setFromDb(); // fields
+        $this->crud->addField([
+            'label' => 'Class Name',
+            'type' => 'text',
+            'name' => 'name',
+            'wrapperAttributes' => [
+                'class' => 'form-group col-md-3'
+            ],
 
-        /**
-         * Fields can be defined using the fluent syntax or array syntax:
-         * - CRUD::field('price')->type('number');
-         * - CRUD::addField(['name' => 'price', 'type' => 'number']));
-         */
+        ]);
+
+        $this->crud->addField([
+            'label' => 'Section',
+            'type' => 'text',
+            'name' => 'section',
+            'wrapperAttributes' => [
+                'class' => 'form-group col-md-3'
+            ],
+
+        ]);
+
+        $this->crud->addField([
+            'label' => 'Time Close',
+            'type' => 'text',
+            'name' => 'time_close',
+            'wrapperAttributes' => [
+                'class' => 'form-group col-md-3'
+            ],
+
+        ]);
     }
 
     /**
