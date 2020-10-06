@@ -19,4 +19,5 @@ Route::group([
     Route::crud('teacher', 'TeacherCrudController');
     Route::crud('library', 'LibraryCrudController');
     Route::get('charts/weekly-users', 'Charts\WeeklyUsersChartController@response')->name('charts.weekly-users.index');
+    Route::crud('guardian', 'GuardianCrudController');
 }); // this should be the absolute last line of this file

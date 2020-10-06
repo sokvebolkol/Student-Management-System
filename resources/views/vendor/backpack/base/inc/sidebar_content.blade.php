@@ -9,3 +9,5 @@
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('library') }}'><i class='nav-icon la la-book'></i> Library</a></li>
 <li class="nav-item"><a class="nav-link" href="#"><i class="nav-icon la la-map-marker"></i> Map</a></li>
 <li class="nav-item"><a class="nav-link" href="{{backpack_url('edit-account-info')}}"><i class="nav-icon la la-user"></i> My Account</a></li>
+
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('guardian') }}'><i class='nav-icon la la-question'></i> Guardians</a></li>
