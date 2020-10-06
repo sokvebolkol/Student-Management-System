@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\LibraryRequest;
+use App\Http\Requests\My_classRequest;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 use Backpack\CRUD\app\Library\CrudPanel\CrudPanelFacade as CRUD;
 
 /**
- * Class LibraryCrudController
+ * Class My_classCrudController
  * @package App\Http\Controllers\Admin
  * @property-read \Backpack\CRUD\app\Library\CrudPanel\CrudPanel $crud
  */
-class LibraryCrudController extends CrudController
+class My_classCrudController extends CrudController
 {
     use \Backpack\CRUD\app\Http\Controllers\Operations\ListOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
@@ -26,9 +26,9 @@ class LibraryCrudController extends CrudController
      */
     public function setup()
     {
-        CRUD::setModel(\App\Models\Library::class);
-        CRUD::setRoute(config('backpack.base.route_prefix') . '/library');
-        CRUD::setEntityNameStrings('library', 'libraries');
+        CRUD::setModel(\App\Models\My_class::class);
+        CRUD::setRoute(config('backpack.base.route_prefix') . '/my_class');
+        CRUD::setEntityNameStrings('class', 'classes');
     }
 
     /**
@@ -56,46 +56,34 @@ class LibraryCrudController extends CrudController
      */
     protected function setupCreateOperation()
     {
-        CRUD::setValidation(LibraryRequest::class);
+        CRUD::setValidation(My_classRequest::class);
 
         $this->crud->addField([
-            'label' => 'Book Name',
+            'label' => 'Class Name',
             'type' => 'text',
-            'name' => 'book_name',
+            'name' => 'name',
             'wrapperAttributes' => [
-                'class' => 'form-group col-md-6'
-            ],
-
-        ]);
-        $this->crud->addField([
-            'label' => 'Write Name',
-            'type' => 'text',
-            'name' => 'writer_name',
-            'wrapperAttributes' => [
-                'class' => 'form-group col-md-6'
-            ],
-
-        ]);
-        $this->crud->addField([
-            'label' => 'Subject',
-            'type' => 'text',
-            'name' => 'subject',
-            'wrapperAttributes' => [
-                'class' => 'form-group col-md-6'
+                'class' => 'form-group col-md-3'
             ],
 
         ]);
 
         $this->crud->addField([
-            'label' => 'Publish Year',
-            'type' => 'datetime_picker',
-            'name' => 'publish_year',
-            'datetime_picker_options' => [
-                'format' => 'DD/MM/YYYY HH:mm',
-            ],
-            'allows_null' => true,
+            'label' => 'Section',
+            'type' => 'text',
+            'name' => 'section',
             'wrapperAttributes' => [
-                'class' => 'form-group col-md-6'
+                'class' => 'form-group col-md-3'
+            ],
+
+        ]);
+
+        $this->crud->addField([
+            'label' => 'Time Close',
+            'type' => 'text',
+            'name' => 'time_close',
+            'wrapperAttributes' => [
+                'class' => 'form-group col-md-3'
             ],
 
         ]);
