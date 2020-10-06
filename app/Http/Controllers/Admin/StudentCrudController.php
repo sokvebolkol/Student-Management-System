@@ -39,13 +39,31 @@ class StudentCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::setFromDb(); // columns
-
-        /**
-         * Columns can be defined using the fluent syntax or array syntax:
-         * - CRUD::column('price')->type('number');
-         * - CRUD::addColumn(['name' => 'price', 'type' => 'number']);
-         */
+        $this->crud->addColumn([
+            'name' => 'firstname',
+            'label' => 'First Name',
+            'type' => 'text',
+        ]);
+        $this->crud->addColumn([
+            'name' => 'lastname',
+            'label' => 'Last Name',
+            'type' => 'text'
+        ]);
+        $this->crud->addColumn([
+            'name' => 'gender',
+            'label' => 'Gender',
+            'type' => 'text'
+        ]);
+        $this->crud->addColumn([
+            'name' => 'birthday',
+            'label' => 'Birthday',
+            'type' => 'text'
+        ]);
+        $this->crud->addColumn([
+            'name' => 'religion',
+            'label' => 'Religion',
+            'type' => 'text'
+        ]);
     }
 
     /**
@@ -56,8 +74,7 @@ class StudentCrudController extends CrudController
      */
     protected function setupCreateOperation()
     {
-        CRUD::setValidation(StudentRequest::class);
-
+        $this->crud->setValidation(StudentRequest::class);
         $this->crud->addField([
             'label' => 'First Name',
             'type' => 'text',
@@ -93,7 +110,6 @@ class StudentCrudController extends CrudController
             'datetime_picker_options' => [
                 'format' => 'DD/MM/YYYY HH:mm',
             ],
-            'allows_null' => true,
             'wrapperAttributes' => [
                 'class' => 'form-group col-md-3'
             ],
@@ -132,7 +148,6 @@ class StudentCrudController extends CrudController
 
     protected function setupShowOperation()
     {
-        $this->crud->set('show.setFromDb', false);
         $this->crud->addColumn([
             'name' => 'firstname',
             'label' => 'First Name',

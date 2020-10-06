@@ -39,13 +39,7 @@ class LibraryCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::setFromDb(); // columns
-
-        /**
-         * Columns can be defined using the fluent syntax or array syntax:
-         * - CRUD::column('price')->type('number');
-         * - CRUD::addColumn(['name' => 'price', 'type' => 'number']);
-         */
+        CRUD::setFromDb();
     }
 
     /**
@@ -68,7 +62,7 @@ class LibraryCrudController extends CrudController
 
         ]);
         $this->crud->addField([
-            'label' => 'Write Name',
+            'label' => 'Writer Name',
             'type' => 'text',
             'name' => 'writer_name',
             'wrapperAttributes' => [
@@ -98,6 +92,41 @@ class LibraryCrudController extends CrudController
                 'class' => 'form-group col-md-6'
             ],
 
+        ]);
+    }
+    protected function setupShowOperation()
+    {
+        $this->crud->set('show.setFromDb', false);
+        $this->crud->addColumn([
+            'label' => 'Book Name',
+            'type' => 'text',
+            'name' => 'book_name',
+        ]);
+        $this->crud->addColumn([
+            'label' => 'Writer Name',
+            'type' => 'text',
+            'name' => 'writer_name',
+        ]);
+        $this->crud->addColumn([
+            'label' => 'Subject',
+            'type' => 'text',
+            'name' => 'subject',
+        ]);
+
+        $this->crud->addColumn([
+            'label' => 'Publish Year',
+            'type' => 'datetime_picker',
+            'name' => 'publish_year',
+        ]);
+        $this->crud->addColumn([
+            'label' => 'Created At',
+            'type' => 'datetime_picker',
+            'name' => 'updated_at',
+        ]);
+        $this->crud->addColumn([
+            'label' => 'Updated At',
+            'type' => 'datetime_picker',
+            'name' => 'created_at',
         ]);
     }
 

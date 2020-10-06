@@ -58,7 +58,10 @@ class Student extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
-
+    public function guardians()
+    {
+        return $this->hasOne('App\Models\Guardian')->withTimestamps();
+    }
     /*
     |--------------------------------------------------------------------------
     | SCOPES
