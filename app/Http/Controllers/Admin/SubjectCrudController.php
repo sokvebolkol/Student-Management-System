@@ -17,7 +17,6 @@ class SubjectCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\CreateOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\UpdateOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
-    use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
 
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
@@ -39,13 +38,30 @@ class SubjectCrudController extends CrudController
      */
     protected function setupListOperation()
     {
-        CRUD::setFromDb(); // columns
+        $this->crud->addColumn([
+            'label' => 'Subject',
+            'type' => 'text',
+            'name' => 'name',
 
-        /**
-         * Columns can be defined using the fluent syntax or array syntax:
-         * - CRUD::column('price')->type('number');
-         * - CRUD::addColumn(['name' => 'price', 'type' => 'number']);
-         */
+        ]);
+        $this->crud->addColumn([
+            'label' => 'Type',
+            'type' => 'text',
+            'name' => 'type',
+
+        ]);
+        $this->crud->addColumn([
+            'label' => 'Created At',
+            'type' => 'text',
+            'name' => 'created_at',
+
+        ]);
+        $this->crud->addColumn([
+            'label' => 'Updated At',
+            'type' => 'text',
+            'name' => 'updated_at',
+
+        ]);
     }
 
     /**
@@ -69,8 +85,11 @@ class SubjectCrudController extends CrudController
         ]);
         $this->crud->addField([
             'label' => 'Type',
-            'type' => 'text',
             'name' => 'type',
+            'type'        => 'select2_from_array',
+            'options'     => ['one' => 'Mathematics', 'two' => 'Theory', 'three' => 'Pratical'],
+            'allows_null' => false,
+            'default'     => 'one',
             'wrapperAttributes' => [
                 'class' => 'form-group col-md-6'
             ],
