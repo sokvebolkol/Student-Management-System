@@ -7,5 +7,5 @@
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('my_class') }}"><i class="nav-icon la la-building-o"></i> Classess</a></li>
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('subject') }}"><i class="nav-icon la la-folder"></i> Subjects</a></li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('library') }}'><i class='nav-icon la la-book'></i> Library</a></li>
-<li class="nav-item"><a class="nav-link" href="{{ backpack_url('info') }}"><i class="nav-icon la la-map-marker"></i> Map</a></li>
+<li class="nav-item"><a class="nav-link" href="{{ backpack_url('info') }}"><i class="nav-icon la la-map-marker"></i> Infomation</a></li>
 <li class="nav-item"><a class="nav-link" href="{{backpack_url('edit-account-info')}}"><i class="nav-icon la la-user"></i> My Account</a></li>
