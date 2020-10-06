@@ -19,7 +19,11 @@ Route::group([
     Route::crud('teacher', 'TeacherCrudController');
     Route::crud('library', 'LibraryCrudController');
     Route::get('charts/weekly-users', 'Charts\WeeklyUsersChartController@response')->name('charts.weekly-users.index');
+<<<<<<< HEAD
+    Route::crud('guardian', 'GuardianCrudController');
+=======
     Route::crud('subject', 'SubjectCrudController');
     Route::crud('my_class', 'My_classCrudController');
     Route::crud('info', 'InfoCrudController');
+>>>>>>> 617bb62c41edcf8afcbb0e677630716c5aa444dd
 }); // this should be the absolute last line of this file
