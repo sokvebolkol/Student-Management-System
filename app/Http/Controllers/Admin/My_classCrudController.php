@@ -59,11 +59,26 @@ class My_classCrudController extends CrudController
         CRUD::setValidation(My_classRequest::class);
 
         $this->crud->addField([
+            'label' => 'Teacher',
+            'name' => 'teachers_id',
+            'type' => 'select',
+            'entity' => 'teachers',
+            'attributes' => ['required' => 'required'],
+            'attribute' => 'firstname',
+            'model' => "App\Models\Teacher",
+            'options'   => (function ($query) {
+                return $query->orderBy('id', 'ASC')->get();
+            }),
+            'wrapperAttributes' => [
+                'class' => 'form-group col-md-4'
+            ],
+        ]);
+        $this->crud->addField([
             'label' => 'Class Name',
             'type' => 'text',
             'name' => 'name',
             'wrapperAttributes' => [
-                'class' => 'form-group col-md-3'
+                'class' => 'form-group col-md-8'
             ],
 
         ]);
@@ -73,17 +88,21 @@ class My_classCrudController extends CrudController
             'type' => 'text',
             'name' => 'section',
             'wrapperAttributes' => [
-                'class' => 'form-group col-md-3'
+                'class' => 'form-group col-md-6'
             ],
 
         ]);
 
         $this->crud->addField([
             'label' => 'Time Close',
-            'type' => 'text',
             'name' => 'time_close',
+            'type' => 'datetime_picker',
+            'datetime_picker_options' => [
+                'format' => 'DD/MM/YYYY HH:mm',
+            ],
+            'allows_null' => true,
             'wrapperAttributes' => [
-                'class' => 'form-group col-md-3'
+                'class' => 'form-group col-md-6'
             ],
 
         ]);

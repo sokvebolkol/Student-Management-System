@@ -14,6 +14,8 @@ class CreateMyClassesTable extends Migration
     {
         Schema::create('my_classes', function (Blueprint $table) {
             $table->increments('id');
+            $table->unsignedInteger('teachers_id');
+            $table->foreign('teachers_id')->references('id')->on('teachers');
             $table->string('name');
             $table->string('section');
             $table->string('time_close');

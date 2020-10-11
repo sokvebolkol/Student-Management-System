@@ -71,15 +71,20 @@ class LibraryCrudController extends CrudController
 
         ]);
         $this->crud->addField([
-            'label' => 'Subject',
-            'type' => 'text',
-            'name' => 'subject',
+            'label' => 'Subject Name',
+            'name' => 'subjects_id',
+            'type' => 'select',
+            'entity' => 'subjects',
+            'attributes' => ['required' => 'required'],
+            'attribute' => 'name',
+            'model' => "App\Models\Subject",
+            'options'   => (function ($query) {
+                return $query->orderBy('name', 'ASC')->get();
+            }),
             'wrapperAttributes' => [
                 'class' => 'form-group col-md-6'
             ],
-
         ]);
-
         $this->crud->addField([
             'label' => 'Publish Year',
             'type' => 'datetime_picker',
@@ -106,11 +111,6 @@ class LibraryCrudController extends CrudController
             'label' => 'Writer Name',
             'type' => 'text',
             'name' => 'writer_name',
-        ]);
-        $this->crud->addColumn([
-            'label' => 'Subject',
-            'type' => 'text',
-            'name' => 'subject',
         ]);
 
         $this->crud->addColumn([

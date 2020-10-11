@@ -16,7 +16,7 @@ class My_class extends Model
     */
 
     protected $table = 'my_classes';
-    // protected $primaryKey = 'id';
+    protected $primaryKey = 'id';
     // public $timestamps = false;
     protected $guarded = ['id'];
     // protected $fillable = [];
@@ -34,7 +34,10 @@ class My_class extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
-
+    public function teachers()
+    {
+        return $this->hasMany('App\Models\Teacher');
+    }
     /*
     |--------------------------------------------------------------------------
     | SCOPES

@@ -16,7 +16,7 @@ class Subject extends Model
     */
 
     protected $table = 'subjects';
-    // protected $primaryKey = 'id';
+    protected $primaryKey = 'id';
     // public $timestamps = false;
     protected $guarded = ['id'];
     // protected $fillable = [];
@@ -34,7 +34,14 @@ class Subject extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
-
+    public function teachers()
+    {
+        return $this->hasOne('App\Models\Teacher');
+    }
+    public function libraries()
+    {
+        return $this->hasOne('App\Models\Library');
+    }
     /*
     |--------------------------------------------------------------------------
     | SCOPES
