@@ -17,7 +17,7 @@ class Student extends Model
     */
 
     protected $table = 'students';
-    // protected $primaryKey = 'id';
+    protected $primaryKey = 'id';
     // public $timestamps = false;
     protected $guarded = ['id'];
     // protected $fillable = [];
@@ -60,7 +60,7 @@ class Student extends Model
     */
     public function guardians()
     {
-        return $this->hasOne('App\Models\Guardian')->withTimestamps();
+        return $this->hasOne('App\Models\Guardian');
     }
     /*
     |--------------------------------------------------------------------------

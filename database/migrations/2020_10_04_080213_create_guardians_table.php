@@ -15,11 +15,12 @@ class CreateGuardiansTable extends Migration
     {
         Schema::create('guardians', function (Blueprint $table) {
             $table->increments('id');
+            $table->unsignedInteger('students_id');
+            $table->foreign('students_id')->references('id')->on('students');
             $table->string('father_fname')->nullable();
             $table->string('father_lname')->nullable();
             $table->string('mother_fname')->nullable();
             $table->string('mother_lname')->nullable();
-            $table->string('gender')->nullable();
             $table->string('occupation')->nullable();
             $table->string('address')->nullable();
             $table->string('nationality')->nullable();

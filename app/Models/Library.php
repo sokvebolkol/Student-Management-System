@@ -16,7 +16,7 @@ class Library extends Model
     */
 
     protected $table = 'libraries';
-    // protected $primaryKey = 'id';
+    protected $primaryKey = 'id';
     // public $timestamps = false;
     protected $guarded = ['id'];
     // protected $fillable = [];
@@ -34,7 +34,10 @@ class Library extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
-
+    public function subjects()
+    {
+        return $this->hasMany('App\Models\Subject');
+    }
     /*
     |--------------------------------------------------------------------------
     | SCOPES

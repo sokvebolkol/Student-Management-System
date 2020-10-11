@@ -14,9 +14,10 @@ class CreateLibrariesTable extends Migration
     {
         Schema::create('libraries', function (Blueprint $table) {
             $table->increments('id');
+            $table->unsignedInteger('subjects_id');
+            $table->foreign('subjects_id')->references('id')->on('subjects');
             $table->string('book_name')->unique();
             $table->string('writer_name');
-            $table->string('subject');
             $table->string('publish_year');
             $table->timestamps();
         });

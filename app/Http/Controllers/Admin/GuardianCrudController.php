@@ -40,23 +40,28 @@ class GuardianCrudController extends CrudController
     protected function setupListOperation()
     {
         $this->crud->addColumn([
-            'name' => 'firstname',
-            'label' => 'First Name',
+            'name' => 'father_fname',
+            'label' => 'Father FirstName',
             'type' => 'text',
         ]);
         $this->crud->addColumn([
-            'name' => 'lastname',
-            'label' => 'Last Name',
+            'name' => 'father_lname',
+            'label' => 'Father LastName',
             'type' => 'text'
         ]);
         $this->crud->addColumn([
-            'name' => 'gender',
-            'label' => 'Gender',
+            'name' => 'mother_fname',
+            'label' => 'Mother FirstName',
+            'type' => 'text',
+        ]);
+        $this->crud->addColumn([
+            'name' => 'mother_lname',
+            'label' => 'Mother LastName',
             'type' => 'text'
         ]);
         $this->crud->addColumn([
-            'name' => 'birthday',
-            'label' => 'Birthday',
+            'name' => 'occupation',
+            'label' => 'Occupation',
             'type' => 'text'
         ]);
         $this->crud->addColumn([
@@ -76,11 +81,26 @@ class GuardianCrudController extends CrudController
     {
         $this->crud->setValidation(GuardianRequest::class);
         $this->crud->addField([
+            'label' => 'Student Name',
+            'name' => 'students_id',
+            'type' => 'select',
+            'entity' => 'students',
+            'attributes' => ['required' => 'required'],
+            'attribute' => 'firstname',
+            'model' => "App\Models\Student",
+            'options'   => (function ($query) {
+                return $query->orderBy('firstname', 'ASC')->get();
+            }),
+            'wrapperAttributes' => [
+                'class' => 'form-group col-md-4'
+            ],
+        ]);
+        $this->crud->addField([
             'label' => 'Father Firstname',
             'type' => 'text',
             'name' => 'father_fname',
             'wrapperAttributes' => [
-                'class' => 'form-group col-md-3'
+                'class' => 'form-group col-md-4'
             ],
 
         ]);
@@ -89,7 +109,7 @@ class GuardianCrudController extends CrudController
             'type' => 'text',
             'name' => 'father_lname',
             'wrapperAttributes' => [
-                'class' => 'form-group col-md-3'
+                'class' => 'form-group col-md-4'
             ],
 
         ]);
@@ -98,7 +118,7 @@ class GuardianCrudController extends CrudController
             'type' => 'text',
             'name' => 'mother_fname',
             'wrapperAttributes' => [
-                'class' => 'form-group col-md-3'
+                'class' => 'form-group col-md-4'
             ],
 
         ]);
@@ -107,17 +127,7 @@ class GuardianCrudController extends CrudController
             'type' => 'text',
             'name' => 'mother_lname',
             'wrapperAttributes' => [
-                'class' => 'form-group col-md-3'
-            ],
-
-        ]);
-        $this->crud->addField([
-            'label' => 'Gender',
-            'name' => 'gender',
-            'type'        => 'select_from_array',
-            'options'     => ['male' => 'Male', 'female' => 'Female', 'other' => 'Other'],
-            'wrapperAttributes' => [
-                'class' => 'form-group col-md-3'
+                'class' => 'form-group col-md-4'
             ],
 
         ]);
@@ -126,7 +136,7 @@ class GuardianCrudController extends CrudController
             'name' => 'occupation',
             'type' => 'text',
             'wrapperAttributes' => [
-                'class' => 'form-group col-md-3'
+                'class' => 'form-group col-md-4'
             ],
 
         ]);
@@ -135,7 +145,7 @@ class GuardianCrudController extends CrudController
             'name' => 'address',
             'type' => 'text',
             'wrapperAttributes' => [
-                'class' => 'form-group col-md-3'
+                'class' => 'form-group col-md-8'
             ],
         ]);
         $this->crud->addField([
@@ -143,7 +153,7 @@ class GuardianCrudController extends CrudController
             'name' => 'nationality',
             'type' => 'text',
             'wrapperAttributes' => [
-                'class' => 'form-group col-md-3'
+                'class' => 'form-group col-md-4'
             ],
 
         ]);
@@ -152,7 +162,7 @@ class GuardianCrudController extends CrudController
             'name' => 'phoneNumber',
             'type' => 'text',
             'wrapperAttributes' => [
-                'class' => 'form-group col-md-3'
+                'class' => 'form-group col-md-4'
             ],
 
         ]);
@@ -166,6 +176,67 @@ class GuardianCrudController extends CrudController
             'wrapperAttributes' => [
                 'class' => 'form-group col-md-4'
             ],
+        ]);
+    }
+
+    protected function setupShowOperation()
+    {
+
+        $this->crud->addColumn([
+            'label' => 'Father Firstname',
+            'type' => 'text',
+            'name' => 'father_fname',
+        ]);
+        $this->crud->addColumn([
+            'name' => 'father_lname',
+            'label' => 'Father LastName',
+            'type' => 'text'
+        ]);
+        $this->crud->addColumn([
+            'name' => 'mother_fname',
+            'label' => 'Mother FirstName',
+            'type' => 'text'
+        ]);
+        $this->crud->addColumn([
+            'name' => 'mother_lname',
+            'label' => 'Mother LastName',
+            'type' => 'text'
+        ]);
+        $this->crud->addColumn([
+            'name' => 'occupation',
+            'label' => 'Occupation',
+            'type' => 'text'
+        ]);
+        $this->crud->addColumn([
+            'name' => 'address',
+            'label' => 'Address',
+            'type' => 'text'
+        ]);
+        $this->crud->addColumn([
+            'name' => 'nationality',
+            'label' => 'Nationality',
+            'type' => 'text'
+        ]);
+        $this->crud->addColumn([
+            'name' => 'phoneNumber',
+            'label' => 'Phonenumber',
+            'type' => 'text'
+        ]);
+        $this->crud->addColumn([
+            'name' => 'avatar',
+            'label' => 'Photo',
+            'type' => 'image',
+            'height' => '100px'
+        ]);
+        $this->crud->addColumn([
+            'name' => 'created_at',
+            'label' => 'Created At',
+            'type' => 'text',
+        ]);
+        $this->crud->addColumn([
+            'name' => 'updated_at',
+            'label' => 'Updated At',
+            'type' => 'text',
         ]);
     }
 

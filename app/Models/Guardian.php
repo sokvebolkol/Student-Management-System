@@ -59,6 +59,10 @@ class Guardian extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
+    public function students()
+    {
+        return $this->hasMany('App\Models\Student');
+    }
     /*
     |--------------------------------------------------------------------------
     | SCOPES

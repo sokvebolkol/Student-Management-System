@@ -59,11 +59,26 @@ class TeacherCrudController extends CrudController
         CRUD::setValidation(TeacherRequest::class);
 
         $this->crud->addField([
+            'label' => 'Subject',
+            'name' => 'subjects_id',
+            'type' => 'select',
+            'entity' => 'subjects',
+            'attributes' => ['required' => 'required'],
+            'attribute' => 'name',
+            'model' => "App\Models\Subject",
+            'options'   => (function ($query) {
+                return $query->orderBy('id', 'ASC')->get();
+            }),
+            'wrapperAttributes' => [
+                'class' => 'form-group col-md-4'
+            ],
+        ]);
+        $this->crud->addField([
             'label' => 'First Name',
             'type' => 'text',
             'name' => 'firstname',
             'wrapperAttributes' => [
-                'class' => 'form-group col-md-3'
+                'class' => 'form-group col-md-4'
             ],
 
         ]);
@@ -72,7 +87,7 @@ class TeacherCrudController extends CrudController
             'type' => 'text',
             'name' => 'lastname',
             'wrapperAttributes' => [
-                'class' => 'form-group col-md-3'
+                'class' => 'form-group col-md-4'
             ],
 
         ]);
@@ -82,7 +97,7 @@ class TeacherCrudController extends CrudController
             'type'        => 'select_from_array',
             'options'     => ['male' => 'Male', 'female' => 'Female', 'other' => 'Other'],
             'wrapperAttributes' => [
-                'class' => 'form-group col-md-3'
+                'class' => 'form-group col-md-4'
             ],
 
         ]);
@@ -91,7 +106,7 @@ class TeacherCrudController extends CrudController
             'type' => 'text',
             'name' => 'phonenumber',
             'wrapperAttributes' => [
-                'class' => 'form-group col-md-3'
+                'class' => 'form-group col-md-4'
             ],
 
         ]);
@@ -100,7 +115,7 @@ class TeacherCrudController extends CrudController
             'type' => 'text',
             'name' => 'address',
             'wrapperAttributes' => [
-                'class' => 'form-group col-md-3'
+                'class' => 'form-group col-md-4'
             ],
 
         ]);
@@ -113,7 +128,7 @@ class TeacherCrudController extends CrudController
             ],
             'allows_null' => true,
             'wrapperAttributes' => [
-                'class' => 'form-group col-md-3'
+                'class' => 'form-group col-md-4'
             ],
 
         ]);
@@ -122,7 +137,7 @@ class TeacherCrudController extends CrudController
             'type' => 'text',
             'name' => 'religion',
             'wrapperAttributes' => [
-                'class' => 'form-group col-md-3'
+                'class' => 'form-group col-md-4'
             ],
 
         ]);
@@ -131,7 +146,7 @@ class TeacherCrudController extends CrudController
             'type' => 'email',
             'name' => 'email',
             'wrapperAttributes' => [
-                'class' => 'form-group col-md-3'
+                'class' => 'form-group col-md-4'
             ],
 
         ]);

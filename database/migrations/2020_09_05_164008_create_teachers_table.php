@@ -14,6 +14,8 @@ class CreateTeachersTable extends Migration
     {
         Schema::create('teachers', function (Blueprint $table) {
             $table->increments('id');
+            $table->unsignedInteger('subjects_id');
+            $table->foreign('subjects_id')->references('id')->on('subjects');
             $table->string('firstname');
             $table->string('lastname');
             $table->string('gender');
