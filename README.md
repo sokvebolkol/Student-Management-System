@@ -17,6 +17,9 @@ php artisan migrate
 ### Genarate key 
 php artisan key:generate
 
+### Facker Data (information school)
+php artisan db:seed
+
 ### Run your end-to-end tests
 php artisan serve
 
