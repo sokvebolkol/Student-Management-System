@@ -17,6 +17,9 @@ php artisan migrate
 ### Genarate key 
 php artisan key:generate
 
+### Import database (optional )
+import sms.sql to the project
+
 ### Facker Data (information school)
 php artisan db:seed
 
